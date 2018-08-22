@@ -1,0 +1,71 @@
+{% extends "layout/default.html" %}
+
+
+{% block content %}
+
+
+<div class="hero is-primary">
+	<div class="hero-body">
+		<div class="container">
+			<h1 class="title">
+				Login
+			</h1>
+		</div>
+	</div>
+</div>
+
+<section class="section">
+	<div class="container">
+		<div class="columns">
+			<div class="column is-half is-offset-one-quarter">
+				<form method="POST">
+					<div class="error">{{ message }}</div>
+					<div class="field">
+						<label class="label">Email</label>
+						<div class="control">
+							<input class="input" type="email" name="email" placeholder="johndoe@gmail.com" required>
+						</div>
+					</div>
+
+
+					<div class="field">
+						<label class="label">Password</label>
+						<div class="control">
+							<input class="input" type="password" name="password" placeholder="password" required>
+						</div>
+					</div>
+
+
+					<div class="field is-grouped">
+						<div class="control">
+							<button class="button is-primary" type="submit">Login</button>
+						</div>
+
+						<div class="control">
+							<button class="button" type="reset">Reset</button>
+						</div>
+					</div>
+				</form>
+				<div class="field">
+					<div class="field-label">   </div>
+						<div class="field-body">
+						<div class="control_link">
+							Don't have an account?<a href="/account/register" class="to_signup"> Sign up</a>
+						</div>
+					</div>
+				</div>  
+					<div class="field">
+					<div class="field-label">   </div>
+						<div class="field-body">
+						<div class="control_link">
+							<a href="/account/forgetPassword" class="to_forgetpassword"> I forgot my password</a>
+						</div>
+					</div>
+				</div>  
+			</div>
+		</div>
+	</div>
+</section>
+
+
+{% endblock %}

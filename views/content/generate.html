@@ -1,0 +1,61 @@
+{% extends "layout/default.html" %}
+
+
+{% block content %}
+
+<div class="hero is-primary">
+	<div class="hero-body">
+		<div class="container">
+			<h1 class="title">
+				Generate
+			</h1>
+		</div>
+	</div>
+</div>
+
+<section class="section">
+	<div class="container">
+		<div class="columns">
+			<div class="column is-half is-offset-one-quarter">
+				<form method="POST" action="/generate">
+					<div class="field">
+						<label class="label">URL</label>
+						<div class="control">
+							<input class="input" type="text" name="url" placeholder="http://mysite.com" required>
+						</div>
+					</div>
+					{% if (error) %}
+					<div class="field">
+						<label class="label">Custom Token (optional)</label>
+						<div class="control">
+							<input class="input is-danger" type="text" name="token" placeholder="token">
+						</div>
+						<p class="help is-danger">{{ error }}</p>
+					</div>
+					{% else %}
+					<div class="field">
+						<label class="label">Custom Token (optional)</label>
+						<div class="control">
+							<input class="input" type="text" name="token" placeholder="token">
+						</div>
+					</div>
+					{% endif %}
+					<div class="field is-grouped">
+						<div class="control">
+							<button class="button is-primary" type="submit">
+								Generate
+							</button>
+						</div>
+
+						<div class="control">
+							<button class="button" type="reset">Reset</button>
+						</div>
+					</div>
+
+				</form>
+			</div>
+		</div>
+	</div>
+</section>
+
+{% endblock %}

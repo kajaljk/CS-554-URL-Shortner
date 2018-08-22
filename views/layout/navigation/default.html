@@ -1,0 +1,93 @@
+<script>
+function toggle_vis(){
+	if(document.cookie.length == 0 ){
+		document.getElementById("loginDiv").style.display = 'block';
+		document.getElementById("logoutDiv").style.display = 'none';
+	}else{
+		document.getElementById("loginDiv").style.display = 'none';
+		document.getElementById("logoutDiv").style.display = 'block';
+	}
+}
+
+</script>
+
+<header class="navbar is-primary">
+	<div class="container">
+		<div class="navbar-brand">
+			<a class="navbar-item" href="/">
+				<p>
+					<strong>URL Shortener</strong>
+				</p>
+			</a>
+
+			<div class="navbar-burger" data-target="navigation-menu" onclick="toggle_vis()">
+				<span></span>
+				<span></span>
+				<span></span>
+			</div>
+		</div>
+
+		<nav class="navbar-menu">
+			<div class="navbar-start">
+				<a class="navbar-item" href="/features">
+					Features
+				</a>
+
+				<a class="navbar-item" href="/team">
+					Team
+				</a>
+				
+				<a class="navbar-item" href="/generate">
+					Generate
+				</a>
+				
+				<a class="navbar-item" href="/urls">
+					My URLs
+				</a>
+			</div>
+
+			<div class="navbar-end">
+				<div class="navbar-item">
+					<div class="field is-grouped" id="loginDiv" style="display:block">
+						<p class="control">
+							<a class="button" href="/account/register">
+								<span class="icon">
+									<i class="material-icons">account_box</i>
+								</span>
+
+								<span>
+									Register
+								</span>
+							</a>
+						</p>
+
+						<p class="control">
+							<a class="button is-primary" href="/account/login">
+								<span class="icon">
+									<i class="material-icons">lock</i>
+								</span>
+									
+								<span>
+									Login
+								</span>
+							</a>
+						</p>
+					</div>
+					<div class="field is-grouped" id="logoutDiv" style="display:none">
+						<p class="control">
+							<a class="button is-primary" href="/account/logout">
+								<span class="icon">
+									<i class="material-icons">lock_open</i>
+								</span>
+									
+								<span>
+									Logout
+								</span>
+							</a>
+						</p>
+					</div> 
+				</div>
+			</div>
+		</nav>
+	</div>
+</header>

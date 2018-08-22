@@ -1,0 +1,13 @@
+// Load Bulma Variables
+@import "../../node_modules/bulma/sass/utilities/initial-variables";
+@import "../../node_modules/bulma/sass/utilities/functions";
+
+
+// Set Custom Variables
+$primary: black;
+
+$family-primary: sans-serif;
+
+
+// Import Bulma
+@import "../../node_modules/bulma/bulma";

@@ -1,0 +1,34 @@
+{
+	"name": "cs-546-lab-7",
+	"version": "1.0.0",
+	"description": "CS546 Lab 7",
+	"main": "app.js",
+	"scripts": {
+		"start": "node app.js"
+	},
+	"author": "Patrick Murray (10394207)",
+	"license": "ISC",
+	"dependencies": {
+		"async": "^2.6.0",
+		"bcrypt": "^2.0.1",
+		"body-parser": "^1.18.2",
+		"bulma": "^0.7.1",
+		"connect-flash": "^0.1.1",
+		"connect-mongo": "^2.0.1",
+		"cookie-parser": "^1.4.3",
+		"crypto": "^1.0.1",
+		"express": "^4.16.3",
+		"express-bulma": "^1.0.1",
+		"express-nunjucks": "^2.2.3",
+		"express-useragent": "^1.0.12",
+		"fs": "0.0.1-security",
+		"moment": "^2.22.1",
+		"mongodb": "^3.0.8",
+		"node-sass-middleware": "^0.11.0",
+		"nodemailer": "^4.6.4",
+		"nodemailer-smtp-transport": "^2.7.4",
+		"nunjucks": "^3.1.2",
+		"path": "^0.12.7",
+		"uuid": "^3.2.1"
+	}
+}

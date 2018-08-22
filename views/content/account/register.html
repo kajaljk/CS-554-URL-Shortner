@@ -1,0 +1,63 @@
+{% extends "layout/default.html" %}
+
+
+{% block content %}
+
+
+<div class="hero is-primary">
+	<div class="hero-body">
+		<div class="container">
+			<h1 class="title">
+				Register
+			</h1>
+		</div>
+	</div>
+</div>
+
+<section class="section">
+	<div class="container">
+		<div class="columns">
+			<div class="column is-half is-offset-one-quarter">
+				<form method="POST">
+					<div class="error">{{ message }}</div>
+					<div class="field">
+						<label class="label">Email</label>
+						<div class="control">
+							<input class="input" type="email" name="email" placeholder="johndoe@gmail.com" required>
+						</div>
+					</div>
+
+					<div class="field">
+						<label class="label">Password</label>
+							<div class="field-body">
+							<div class="control">
+								<input class="input"  name="password" id="password" type="password" placeholder="Password" required>
+							</div>
+						</div>
+					</div>    
+
+					<div class="field is-grouped">
+						<div class="control">
+							<button class="button is-primary" type="submit">
+								Register
+							</button>
+						</div>
+
+						<div class="control">
+							<button class="button" type="reset">Reset</button>
+						</div>
+					</div>
+					<div class="field">
+						<p class="control_link">
+							Already a member?
+							<a href="/account/login" class="to_register"> Log in </a>
+						</p>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</section>
+
+
+{% endblock %}

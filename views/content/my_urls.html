@@ -1,0 +1,115 @@
+{% extends "layout/default.html" %}
+
+
+{% block content %}
+
+<div class="hero is-primary">
+	<div class="hero-body">
+		<div class="container">
+			<h1 class="title">
+				My URLs
+			</h1>
+		</div>
+	</div>
+</div>
+
+<section class="section">
+	<div class="container">
+		<div class="columns">
+			<div class="column is-three-fifths is-offset-one-fifth">
+				{% if (error) %}
+				<h1 class="title">Sorry!</h1>
+				<h2 class="subtitle">{{ error }} Click <a href="/generate">here</a> to generate a token.</h2>
+				{% else %}
+				<h1 class="subtitle">You can generate more tokens <a href="/generate">here</a>.</h1>
+				<table class="table is-fullwidth">
+					<thead>
+						<tr>
+							<th>URL</th>
+							<th>Token</th>
+							<th>Options</th>
+						</tr>
+					</thead>
+					<tbody>
+						{% for url_data in urls %}
+						<tr>
+							<td>{{  url_data.url }}</td>
+							<td>{{  url_data.token }}</td>
+							<td>
+								<div id="{{  url_data.url }}{{url_data.token}}1">
+									<div class="field is-grouped">
+										<p class="control">
+											<a href="#{{ url_data._id}}" onclick="toggle_visibility('{{  url_data.url }}{{url_data.token}}1', '{{  url_data.url }}{{url_data.token}}2');" class="button is-info">
+												Metrics
+											</a>
+										</p>
+										<p class="control">
+											<a href="/urls/delete/{{ url_data._id }}", class="button is-danger">
+												Delete
+											</a>
+										</p>
+									</div>
+								</div>
+								<div class="urlMetrics" style="display:none" id="{{  url_data.url }}{{url_data.token}}2">
+									<div class="field is-grouped">
+										<p class="control">
+											<a href="#{{ url_data._id}}" onclick="toggle_visibility('{{  url_data.url }}{{url_data.token}}2', '{{  url_data.url }}{{url_data.token}}1');"class="button is-info">
+												Hide
+											</a>
+										</p>
+										<table>
+											<tr>
+												Times Visited: {{ url_data.viewLog.length}}
+											</tr> <br>
+											{% if (url_data.viewLog.length == 0) %}
+											<tr>
+												Last Visited: Never
+											</tr> <br>
+											<tr>
+												Last Access From: N/A
+											</tr> <br>
+											<tr>
+												User Agent: N/A
+											</tr>
+
+											{% else %}
+											<tr>
+												Last Visited: {{ url_data.viewLog[url_data.viewLog.length - 1]["timestamp"]}}
+											</tr> <br>
+											<tr>
+												Last Access From: {{ url_data.viewLog[url_data.viewLog.length - 1]["devicetype"]}}
+											</tr> <br>
+											<tr>
+												User Agent: {{ url_data.viewLog[url_data.viewLog.length - 1]["useragent"]}}
+											</tr> 
+											{% endif %}
+										</table>
+																			
+									</div>
+								</div>
+								<script type = "text/javascript">
+									function toggle_visibility(id, otherId) {
+										var e = document.getElementById(id);
+										var g = document.getElementById(otherId);
+										if(e.style.display == 'none'){
+											g.style.display = 'none';
+											e.style.display = 'block';
+										}
+										else{
+											g.style.display = 'block';
+											e.style.display = 'none';
+										}
+									}
+								</script>
+							</td>
+						</tr>
+						{% endfor %}
+					</tbody>
+				</table>
+				{% endif %}
+			</div>
+		</div>
+	</div>
+</section>
+
+{% endblock %}
